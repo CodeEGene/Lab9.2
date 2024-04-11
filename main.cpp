@@ -18,7 +18,7 @@ int main() {
 		cin >> numArray[i];
 	}
 
-	cout << isSortedDecreasing(numArray, 6);
+	cout << hasAdjecentDuplicates(numArray, 6);
 
 	return 0;
 }
@@ -49,6 +49,14 @@ bool isSortedDecreasing(int values[], int size) {
 	return true;
 }
 bool hasAdjecentDuplicates(int values[], int size) {
+	int placeHolder = values[0];
+	for (int i = 1; i < size; i++) {
+		if (numArray[i] == placeHolder) {
+			return true;
+		}else {
+			placeHolder = numArray[i];
+		}
+	}
 	return false;
 }
 bool hasDuplicates(int values[], int size) {
