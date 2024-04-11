@@ -18,7 +18,7 @@ int main() {
 		cin >> numArray[i];
 	}
 
-	cout << hasAdjecentDuplicates(numArray, 6);
+	cout << hasDuplicates(numArray, 6);
 
 	return 0;
 }
@@ -26,8 +26,8 @@ int main() {
 bool isSortedIncreasing(int values[], int size) {
 	int placeHolder = values[0];
 	for (int i = 1; i < size; i++) {
-		if (numArray[i] > placeHolder || numArray[i] == placeHolder) {
-			placeHolder = numArray[i];
+		if (values[i] > placeHolder || values[i] == placeHolder) {
+			placeHolder = values[i];
 		}
 		else {
 			return false;
@@ -39,8 +39,8 @@ bool isSortedIncreasing(int values[], int size) {
 bool isSortedDecreasing(int values[], int size) {
 	int placeHolder = values[0];
 	for (int i = 1; i < size; i++) {
-		if (numArray[i] < placeHolder || numArray[i] == placeHolder) {
-			placeHolder = numArray[i];
+		if (values[i] < placeHolder || values[i] == placeHolder) {
+			placeHolder = values[i];
 		}
 		else {
 			return false;
@@ -51,14 +51,22 @@ bool isSortedDecreasing(int values[], int size) {
 bool hasAdjecentDuplicates(int values[], int size) {
 	int placeHolder = values[0];
 	for (int i = 1; i < size; i++) {
-		if (numArray[i] == placeHolder) {
+		if (values[i] == placeHolder) {
 			return true;
 		}else {
-			placeHolder = numArray[i];
+			placeHolder = values[i];
 		}
 	}
 	return false;
 }
 bool hasDuplicates(int values[], int size) {
+	for (int i = 0; i < size; i++) {
+		int checkValue = values[i];
+		for (int j = i+1; j < size; j++) {
+			if (checkValue == values[j]) {
+				return true;
+			}
+		}
+	}
 	return false;
 }
